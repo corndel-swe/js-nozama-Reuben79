@@ -3,7 +3,7 @@ import db from '../db/index.js'
 class User {
   static async findAll() {
     const query = `
-      select id, username, firstName, lastName, email, avatar 
+      select id, username, firstName, lastName, email, avatar, 
       from users
     `
     const results = await db.raw(query)
@@ -11,10 +11,12 @@ class User {
   }
 
   static async findById(id) {
-    /**
-     * TODO: finish this method
-     */
+
+      const query = `select id, username, firstName, lastName, email, avatar from users WHERE id = ?`
+      const results = await db.raw(query, [id])
+      return results[0]
+    }
   }
-}
+
 
 export default User
