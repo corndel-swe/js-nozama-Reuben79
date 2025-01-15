@@ -15,6 +15,18 @@ export class Account {
   }
 
   updateUsername(newUsername, password) {
+    if (!newUsername) { throw new AppError('New username is required', 400) 
+
+    } 
+    
+    if (!password) { throw new AppError('Password is required', 401) 
+
+    } 
+    
+    if (password !== this.password) { throw new AppError('Incorrect password', 403) 
+
+    }
+    this.username = newUsername
     // If newUsername is not given, throw an AppError with code 400 (Bad Request)
     // If password is not given, throw an AppError with code 401 (Unauthorized)
     // If password is given but not correct, throw an AppError with code 403 (Forbidden)

@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:user": "mocha --require ./tests/hooks.js ./tests/models/User.test.js",
     "db:seed": "cat db/migrations/2-seed.sql | sqlite3 db/db.sqlite",
     "db:reset": "sqlite3 db/db.sqlite < db/migrations/1-reset.sql",
     "dev": "nodemon server/run.js",

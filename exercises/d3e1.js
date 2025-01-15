@@ -13,6 +13,15 @@ let state = {
   count: 0
 }
 
+router.get('/', (_req, res) => { 
+  res.json(state) 
+}
+)
+router.put('/increment', (_req, res) => { 
+  state.count += 1; res.json(state) 
+}
+)
+
 /**
  * Add a GET /counter endpoint
  * It should simply res.json(state)
