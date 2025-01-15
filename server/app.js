@@ -1,13 +1,9 @@
-import express from 'express'
+import express from "express";
+import reviewRouter from "../routers/reviews.js";
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 
-// You can delete this endpoint
-app.get('/', (req, res) => {
-  res.json({ msg: 'Welcome to Nozama!', time: Date.now() })
-})
+app.use("/products", reviewRouter);
 
-// TODO: add endpoints during the workshop
-
-export default app
+export default app;
